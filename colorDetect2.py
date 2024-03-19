@@ -42,7 +42,8 @@ while cap.isOpened:
     b,g,r = int(pixel_center_bgr[0]),int(pixel_center_bgr[1]),int(pixel_center_bgr[2])
 
     dMin = 500
-    color = (0,0,0)
+    storedValue = (255,255,255)
+    color = "Undefined"
     i = 0
     # search for the closest color stored
     for c in colorAll:
@@ -50,8 +51,14 @@ while cap.isOpened:
         if d < dMin:
             dMin = d
             color = colorName[i]
+            storedValue = c
+        elif d == dMin:
+            sizedMin = math.sqrt(pow(storedValue[0],2)+pow(storedValue[1],2)+pow(storedValue[2],2))
+            sized = math.sqrt(pow(b,2)+pow(g,2)+pow(r,2))
+            if sized < sizedMin:
+                color = colorName[i]
+                storedValue = c
         i = i + 1
-            
     print(color)
     print(pixel_center)
     cv2.putText(frame, color, (10,50), 0, 1, (b,g,r), 2)

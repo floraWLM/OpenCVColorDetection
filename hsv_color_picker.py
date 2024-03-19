@@ -6,9 +6,9 @@ def nothing(x):
 
 # Trackbar
 cv2.namedWindow("frame")
-cv2.createTrackbar("H","frame",0, 179, nothing)
-cv2.createTrackbar("S","frame",255, 255, nothing)
-cv2.createTrackbar("V","frame",255, 255, nothing)
+cv2.createTrackbar("H","frame",0, 255, nothing)
+cv2.createTrackbar("S","frame",0, 255, nothing)
+cv2.createTrackbar("V","frame",0, 255, nothing)
 
 # Create a black image, a window
 img_hsv = np.zeros((300,512,3), np.uint8)

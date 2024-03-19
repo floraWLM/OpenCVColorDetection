@@ -59,6 +59,7 @@ while cap.isOpened:
                 color = colorName[i]
                 storedValue = c
         i = i + 1
+        
     print(color)
     print(pixel_center)
     cv2.putText(frame, color, (10,50), 0, 1, (b,g,r), 2)
